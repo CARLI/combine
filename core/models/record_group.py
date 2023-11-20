@@ -124,4 +124,5 @@ class RecordGroup(models.Model):
     def last_modified(self):
         jobs = self.job_set.all()
         timestamps = [job.timestamp for job in jobs]
-        return max(timestamps)
+        return max(timestamps) if timestamps else ''
+
